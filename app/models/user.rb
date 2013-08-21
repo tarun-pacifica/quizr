@@ -17,4 +17,5 @@ class User < ActiveRecord::Base
   attr_accessible :address, :email, :lat, :long, :name, :password_digest
   has_many :quizzes, :through => :user_quizzes
   has_many :user_quizzes
+  has_secure_password
 end
