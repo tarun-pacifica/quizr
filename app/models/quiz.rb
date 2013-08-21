@@ -6,6 +6,7 @@
 #  name       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  slug       :string(255)
 #
 
 class Quiz < ActiveRecord::Base
@@ -13,4 +14,6 @@ class Quiz < ActiveRecord::Base
   has_many :questions
   has_many :answers, :through => :questions
   has_many :users, :through => :user_quizzes
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
 end
