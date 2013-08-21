@@ -7,7 +7,10 @@ class QuizzesController < ApplicationController
   end
 
   def show
+    @user_answer = UserAnswer.new
     @quiz = Quiz.find(params[:id])
+    @questions = @quiz.questions
+    # binding.pry
   end
 
   def index

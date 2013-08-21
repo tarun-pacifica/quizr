@@ -13,4 +13,5 @@ Quizr::Application.routes.draw do
   post '/login' => 'session#create'
   delete 'login' => 'session#destroy'
 
+  resources :user_answers, :only => [:create, :destroy]
 end
