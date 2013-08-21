@@ -1,0 +1,17 @@
+<h1> Welcome to Quizr </h1>
+
+<h3> Latest Quizzes </h3>
+
+<% @quizzes.each do |quiz| %>
+  <ul>
+    <li><%= link_to quiz.name, quiz %></li>
+    <li><%= quiz.questions.count %> questions</li>
+  </ul>
+<% end %>
+
+<h3> Users </h3>
+<% @users.each do |user| %>
+  <ul>
+    <li><%= user.name %></li>
+  </ul>
+  <% end %>
