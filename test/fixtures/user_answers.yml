@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: user_answers
+#
+#  id           :integer          not null, primary key
+#  question_id  :integer
+#  answer_id    :integer
+#  user_quiz_id :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  question_id: 1
+  answer_id: 1
+  user_quiz_id: 1
+
+two:
+  question_id: 1
+  answer_id: 1
+  user_quiz_id: 1
