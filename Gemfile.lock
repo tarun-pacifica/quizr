@@ -51,6 +51,8 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
+    d3-rails (0.0.5)
+      railties (>= 3.1)
     daemons (1.1.9)
     debug_inspector (0.0.2)
     debugger (1.6.1)
@@ -178,6 +180,7 @@ DEPENDENCIES
   better_errors
   capybara
   coffee-rails (~> 3.2.1)
+  d3-rails
   debugger
   friendly_id (~> 4.0.9)
   geocoder

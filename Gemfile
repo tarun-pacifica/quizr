@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'thin'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'sqlite3'
+gem 'd3-rails'
 
 group :development, :test do
 
