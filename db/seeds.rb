@@ -5,9 +5,9 @@ UserAnswer.destroy_all
 Question.destroy_all
 Answer.destroy_all
 
-u1 = User.create(:name => 'Bob', :email => 'bob@gmail.com', :password_digest => 'a', :lat => '-33.88', :long => '151.21')
-u2 = User.create(:name => 'Sue', :email => 'sue@gmail.com', :password_digest => 'a', :lat => '-33.88', :long => '151.21')
-u3 = User.create(:name => 'Sam', :email => 'sam@gmail.com', :password_digest => 'a', :lat => '-33.88', :long => '151.21')
+u1 = User.create(:name => 'Bob', :email => 'bob@gmail.com', :password_digest => 'a', :address => '5 Queen St, Woollahra, NSW 2025')
+u2 = User.create(:name => 'Sue', :email => 'sue@gmail.com', :password_digest => 'a', :address => '25 Bourke St, Melbourne, 3000')
+u3 = User.create(:name => 'Sam', :email => 'sam@gmail.com', :password_digest => 'a', :address => 'Sydney opera house, Sydney')
 
 q1 = Quiz.create(:name => 'Ajax')
 q2 = Quiz.create(:name => 'TDD')
