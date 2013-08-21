@@ -7,4 +7,5 @@ Quizr::Application.routes.draw do
     resources :answers
   end
 
+  resources :user_answers, :only => [:create, :destroy]
 end

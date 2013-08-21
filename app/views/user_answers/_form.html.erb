@@ -1,0 +1,13 @@
+<h1>Form</h1>
+<%= simple_form_for @user_answer do |f|  %>
+  <% @questions.each do |question| %>
+    <ol>
+      <li><h3><%= question.content %></h3></li>
+      <% question.answers.each do |answer| %>
+      <ul>
+        <li><%# f.input answer %></li>
+      </ul>
+    </ol>
+    <% end %>
+  <% end %>
+<% end %>
