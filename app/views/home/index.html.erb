@@ -12,6 +12,8 @@
 <h3> Users </h3>
 <% @users.each do |user| %>
   <ul>
-    <li><%= user.name %></li>
+    <li><%= link_to user.name, user %></li>
   </ul>
   <% end %>
+
+  <%= button_tag link_to "Create quiz", new_quiz_path %>

@@ -1,0 +1,7 @@
+<%= @user.name %>
+
+<h3>Quizzes completed</h3>
+
+<% @user.user_quizzes.each do |quiz| %>
+  <h3><%= quiz.name %></h3>
+<% end %>
