@@ -11,10 +11,13 @@
 #  long            :float
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  slug            :string(255)
 #
 
 class User < ActiveRecord::Base
   attr_accessible :address, :email, :lat, :long, :name, :password_digest
   has_many :quizzes, :through => :user_quizzes
   has_many :user_quizzes
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
 end
