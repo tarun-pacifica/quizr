@@ -9,8 +9,6 @@ end
 
 def index
   @users = User.order(:name)
-  @user_list = User.all
-  render :json => @user_list
 end
 
 def create
@@ -46,13 +44,6 @@ def destroy
   user.destroy
   redirect_to(users_path)
 end
-
-  # def chart_user_dates
-  #   @create_date = User.first.created_at
-  #   render :json => @create_date
-  # end
-
-
 
 private
   def check_if_logged_in
