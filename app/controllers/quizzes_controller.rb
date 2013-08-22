@@ -8,10 +8,10 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find_by_slug(params[:id])
-    @user_quiz = UserQuiz.create(:user_id => 1, :quiz_id => @quiz.id)
+    # @user_quiz = UserQuiz.create(:user_id => @current_user.id, :quiz_id => @quiz.id)
     @user_answer = UserAnswer.new
     @questions = @quiz.questions
-    # binding.pry
+    #binding.pry
   end
 
   def index
