@@ -15,4 +15,10 @@ class UserQuiz < ActiveRecord::Base
   belongs_to :user
   belongs_to :quiz
   has_many :user_answers
+
+
+
+  def complete?
+    self.quiz.questions.count == self.user_answers.count
+  end
 end

@@ -2,6 +2,10 @@
 
 <h3>Quizzes completed</h3>
 
-<% @user.user_quizzes.each do |quiz| %>
-  <h3><%= quiz.name %></h3>
+<% @current_user.quizzes.each do |quiz| %>
+  <h3><%= link_to quiz.name, quiz %></h3>
+  <% quiz.answers.each do |answer| %>
+    <p><%= answer.content %> </p>
+    </p><%= @current_user.user_quizzes.where(:quiz_id =>quiz.id).first.complete? %></p>
+    <% end %>
 <% end %>
