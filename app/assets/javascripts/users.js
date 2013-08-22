@@ -1,21 +1,48 @@
 $(document).ready(function() {
-  var chart_render = function () {
-    var users = ?
+  var user_lat = function () {
+    var display_graph = function(userdata) {
+      $('#chart').empty();
+      new Morris.Bar({
+        element: 'chart',
+        data: userdata,
+        xkey: 'name',
+        ykeys:['lat'],
+        labels:['Value']
+      });
+    };
     $.ajax({
       dataType: 'json',
       type: 'get',
       url: '/users'
     }).done(display_graph);
   };
+
+var user_id = function () {
   var display_graph = function(userdata) {
     $('#chart').empty();
-    new Morris.line({
+    new Morris.Bar({
+      barColors: ['red'],
+      stacked: false,
       element: 'chart',
       data: userdata,
-      xkey 'created_at',
-      ykeys:['name'],
-      labels:['Value']
+      xkey: 'name',
+      ykeys:['id'],
+      labels:['ID']
     });
   };
-chart_render;
+  $.ajax({
+    dataType: 'json',
+    type: 'get',
+    url: '/users'
+  }).done(display_graph);
+};
+
+$('#graph_a').click(function() {
+  user_lat();
+  });
+
+$('#graph_b').click(function() {
+  user_id();
+});
+
 });
