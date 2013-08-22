@@ -6,7 +6,11 @@
   <ul>
     <li><%= quiz.name %></li>
     <li><%= quiz.questions.count %> questions</li>
-    <%= submit_tag "Create quiz", user_quizzes_path, :method => 'post', :locals => {:quiz_id => quiz.id } %>
+    <%= form_tag '/user_quizzes' do %>
+    <%= hidden_field_tag "quiz_id", quiz.id %>
+    <%= hidden_field_tag "quiz_slug", quiz.slug %>
+    <%= submit_tag %>
+    <% end %>
   </ul>
 <% end %>
 
