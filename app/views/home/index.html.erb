@@ -1,4 +1,11 @@
-<h1> Welcome to Quizr </h1>
+<script>
+  var pins = [];
+  var markers = [];
+</script>
+
+<div id="map">
+  <div id="map_canvas"></div>
+</div>
 
 <h3> Latest Quizzes </h3>
 
@@ -9,11 +16,16 @@
   </ul>
 <% end %>
 
-<h3> Users </h3>
 <% @users.each do |user| %>
   <ul>
-    <li><%= link_to user.name, user %></li>
+    <li><%#= link_to user.name, user %></li>
   </ul>
-  <% end %>
+<% end %>
 
-  <%= button_tag link_to "Create quiz", new_quiz_path %>
+
+
+
+
+<!--
+WRITE SCRIPT TO GET PINS AND PUSH THEM WITH MARKERs
+CONVERT SHIT INTO COFFEESCRIPT -->
