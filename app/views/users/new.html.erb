@@ -1,34 +1,14 @@
-<form action="/users/new" accept-charset="UTF-8" class="simple_form new_user" id="new_comment" method="post">
-  <fieldset>
-    <legend>Sign Up!</legend>
-    <div class="control-group string required user_name">
-      <label for="name" class="string required control-label">
-        <abbr title="required"> * Full Name</abbr>
-      </label>
-      <div class="controls">
-        <input type="text" class="string required xxlarge" id="name" name="user[name]">
-      </div>
-    </div>
-    <div class="control-group string required user_email">
-      <label for="email" class="string required control-label">
-        <abbr title="required"> * Email</abbr>
-      </label>
-      <div class="controls">
-        <input type="text" class="string required xxlarge" id="email" name="user[email]">
-      </div>
-    </div>
-    <div class="control-group string required user_address">
-      <label for="address" class="string required control-label">
-        <abbr title="required"> * Address</abbr>
-      </label>
-      <div class="controls">
-        <input type="text" class="string required xxlarge" id="address" name="user[address]">
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="form-actions">
-      <input type="submit" name="commit" value="Create User" class="btn btn-primary">
-    </div>
-  </fieldset>
-</form>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <br>
+  <%= f.input :email %>
+  <br>
+  <%= f.input :address %>
+  <br>
+  <%= f.input :password %>
+  <br>
+  <%= f.input :password_confirmation %>
+  <br>
+  <br>
+  <%= f.button :submit %>
+<% end %>
