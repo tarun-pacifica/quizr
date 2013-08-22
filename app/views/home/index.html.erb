@@ -20,3 +20,16 @@
     <li><%= link_to user.name, user %></li>
   </ul>
   <% end %>
+
+<div id="graph_box">
+  <h3>Quiz Graph</h3>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary" id="graph_a">
+      <input type="radio" name="options" id="option1"> Latitudes
+    </label>
+    <label class="btn btn-primary" id="graph_b">
+      <input type="radio" name="options" id="option2"> Quiz Name vs ID
+    </label>
+  </div>
+  <div id="chart"></div>
+</div>
