@@ -1,8 +1,10 @@
 Quizr::Application.routes.draw do
   root :to => "home#index"
 
-  resources :sessions
+  resources :session
   resources :users
+
+  resources :user_quizzes, :only => [:create]
 
   resources :quizzes do
     resources :questions

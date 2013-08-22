@@ -7,10 +7,11 @@ class QuizzesController < ApplicationController
   end
 
   def show
+    @quiz = Quiz.find_by_slug(params[:id])
+    # @user_quiz = UserQuiz.create(:user_id => @current_user.id, :quiz_id => @quiz.id)
     @user_answer = UserAnswer.new
-    @quiz = Quiz.find(params[:id])
     @questions = @quiz.questions
-    # binding.pry
+    #binding.pry
   end
 
   def index

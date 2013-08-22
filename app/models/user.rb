@@ -16,9 +16,10 @@
 
 class User < ActiveRecord::Base
   before_save :geocode
-  attr_accessible :address, :email, :lat, :long, :name, :password_digest
+  attr_accessible :address, :email, :lat, :long, :name, :password, :password_confirmation
   has_many :quizzes, :through => :user_quizzes
   has_many :user_quizzes
+  has_many :user_answers, :through => :user_quizzes
   has_secure_password
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]

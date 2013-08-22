@@ -4,8 +4,9 @@
 
 <% @quizzes.each do |quiz| %>
   <ul>
-    <li><%= link_to quiz.name, quiz %></li>
+    <li><%= quiz.name %></li>
     <li><%= quiz.questions.count %> questions</li>
+    <%= submit_tag "Create quiz", user_quizzes_path, :method => 'post', :locals => {:quiz_id => quiz.id } %>
   </ul>
 <% end %>
 
@@ -15,5 +16,3 @@
     <li><%= link_to user.name, user %></li>
   </ul>
   <% end %>
-
-  <%= button_tag link_to "Create quiz", new_quiz_path %>
