@@ -4,6 +4,8 @@ Quizr::Application.routes.draw do
   resources :session
   resources :users
 
+  resources :user_quizzes, :only => [:create]
+
   resources :quizzes do
     resources :questions
     resources :answers

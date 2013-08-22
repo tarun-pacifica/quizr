@@ -11,8 +11,13 @@
 
 <% @quizzes.each do |quiz| %>
   <ul>
-    <li><%= link_to quiz.name, quiz %></li>
+    <li><%= quiz.name %></li>
     <li><%= quiz.questions.count %> questions</li>
+    <%= form_tag '/user_quizzes' do %>
+    <%= hidden_field_tag "quiz_id", quiz.id %>
+    <%= hidden_field_tag "quiz_slug", quiz.slug %>
+    <%= submit_tag %>
+    <% end %>
   </ul>
 <% end %>
 
@@ -26,6 +31,21 @@
 
 
 
+<<<<<<< HEAD
 <!--
 WRITE SCRIPT TO GET PINS AND PUSH THEM WITH MARKERs
 CONVERT SHIT INTO COFFEESCRIPT -->
+=======
+<div id="graph_box">
+  <h3>Quiz Graph</h3>
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary" id="graph_a">
+      <input type="radio" name="options" id="option1"> Latitudes
+    </label>
+    <label class="btn btn-primary" id="graph_b">
+      <input type="radio" name="options" id="option2"> Quiz Name vs ID
+    </label>
+  </div>
+  <div id="chart"></div>
+</div>
+>>>>>>> 8be8b5af12037a71b9a43b35cd11e5bbcb12d8c7
