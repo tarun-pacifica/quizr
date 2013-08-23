@@ -106,12 +106,13 @@ app.User = Backbone.Model.extend
     email: 'gregor@gmail.com'
     address: 'Russia'
 
-window.add_marker = (lat, long, zoom) ->
+window.add_marker = (lat, long) ->
   latlng = new google.maps.LatLng(lat, long)
   marker = new google.maps.Marker(
-    post: latlng
+    position: latlng
     map: map
     )
+  markers.push(marker)
 
 $(document).ready ->
   display_map(-33.89336, 151.217167, 13)

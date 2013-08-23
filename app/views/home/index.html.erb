@@ -24,7 +24,7 @@
 <% @users.each do |user| %>
   <script>
     $(document).ready(function() {
-      add_marker(<%= user.lat %>, <%= user.long %>, 13);
+      add_marker(<%= user.lat %>, <%= user.long %>);
     });
   </script>
 <% end %>
