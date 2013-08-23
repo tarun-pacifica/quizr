@@ -16,7 +16,7 @@
     <%= form_tag '/user_quizzes' do %>
     <%= hidden_field_tag "quiz_id", quiz.id %>
     <%= hidden_field_tag "quiz_slug", quiz.slug %>
-    <%= submit_tag %>
+    <%= submit_tag 'Start Quiz' %>
     <% end %>
   </ul>
 <% end %>
