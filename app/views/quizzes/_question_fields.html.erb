@@ -1,0 +1,9 @@
+<div class="nested_fields">
+<%= f.input :content %>
+<%= link_to_remove_association "remove question", f %>
+
+  <%= f.simple_fields_for :answers do |answer| %>
+  <%= render 'answer_fields', :f => answer %>
+  <% end %>
+  <%= link_to_add_association 'add answer', f, :answers %>
+</div>
