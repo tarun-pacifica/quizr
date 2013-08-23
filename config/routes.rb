@@ -4,6 +4,7 @@ Quizr::Application.routes.draw do
   resources :session
   resources :users
 
+
   resources :user_quizzes, :only => [:create]
 
   resources :quizzes do
@@ -14,6 +15,9 @@ Quizr::Application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete 'login' => 'session#destroy'
+
+  get '/chart/user_id' => 'chart#user_id'
+  get '/chart/user_lat' => 'chart#user_lat'
 
   resources :user_answers, :only => [:create, :destroy]
 end
