@@ -15,6 +15,9 @@ class Quiz < ActiveRecord::Base
   has_many :answers, :through => :questions
   has_many :user_quizzes
   has_many :users, :through => :user_quizzes
+
+  accepts_nested_attributes_for :questions, :reject_if => :all_blank, :allow_destroy => true
+
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 end
