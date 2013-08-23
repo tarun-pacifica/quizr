@@ -1,3 +1,3 @@
 $ ->
   $('.question_submit').click ->
-    parent().parent().hide()
+    console.log "hello"
