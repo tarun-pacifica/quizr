@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
 
-before_filter :check_if_logged_in, :except => [:new, :create]
+before_filter :check_if_logged_in, :except => [:new, :create, :index, :show]
 # before_filter :check_if_admin, :only => [:index, :destroy]
 
 def show
-  @user = User.find_by_slug(params[:id])
+  @user = User.find(params[:id])
+  render :json => @user
 end
 
 def index
   @users = User.order(:name)
+  render :json => @users
 end
 
 def create
