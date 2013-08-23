@@ -5,7 +5,12 @@ before_filter :check_if_logged_in, :except => [:new, :create, :index, :show]
 
 def show
   @user = User.find(params[:id])
-  render :json => @user
+  respond_to do |format|
+    format.html
+    format.json{
+      render :json => @user.to_json
+    }
+  end
 end
 
 def index
