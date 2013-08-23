@@ -1,1 +1,4 @@
 $('#<%= @user_answer.question_id %>').fadeOut('slow');
+$('#<%= @user_answer.question_id %>').closest(".question-inner-container").hide();
+$('#flash').empty();
+$('#flash').html("<%= escape_javascript raw(flash_display) %>");
