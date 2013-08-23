@@ -16,16 +16,16 @@
     <%= form_tag '/user_quizzes' do %>
     <%= hidden_field_tag "quiz_id", quiz.id %>
     <%= hidden_field_tag "quiz_slug", quiz.slug %>
-    <%= submit_tag %>
+    <%= submit_tag 'Start Quiz' %>
     <% end %>
   </ul>
 <% end %>
 
 <% @users.each do |user| %>
   <script>
-    $(document).ready(function() {
-      add_marker(<%= user.lat %>, <%= user.long %>);
-    });
+    // $(document).ready(function() {
+    //   add_marker(<%= user.lat %>, <%= user.long %>, "<%= user.name %>");
+    // });
   </script>
 <% end %>
 

@@ -43,19 +43,17 @@ display_map = (lat, long, zoom) ->
       position: google.maps.ControlPosition.RIGHT_TOP
     mapTypeControl: false
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  window.map = new google.maps.Map(canvas, mapOptions)
+  app.map = new google.maps.Map(canvas, mapOptions)
 
 # Backbone-ish Stuff
 
-app = app || {}
+window.app = window.app || {}
 
 app.templates =
   appView: '<h1>Recent Posts</h1><ul id="posts"></ul>',
   blogList: '{{title}}',
   blogView: '<div class="post"><h1 class="title">{{title}}</h1><h3 class="slug">{{slug}}</h3><div class="content">{{{content}}}</div></div><div class="form"><ul class="comments"></div><div class="actual_form"></div><button class="submit">Submit</button>',
   commentList: '<li>{{twaddle}}</li>'
-
-app = app || {}
 
 app.AppRouter = Backbone.Router.extend
   routes:
@@ -66,51 +64,42 @@ app.AppRouter = Backbone.Router.extend
     appView = new app.AppView
       collection: new app.Users()
 
-app = app || {}
-
 app.AppView = Backbone.View.extend
 
   el: '#main'
 
   initialize: () ->
-    this.$el.html(app.templates.appView)
-    this.list = $('#posts')
     this.collection.fetch()
     this.collection.on("add", this.renderUser, this)
 
   renderUser: (user) ->
-    view = new app.UserListView
-      model: user
-    this.list.append(view.render().el)
+    app.add_marker user.get('lat'), user.get('long'), user.get('name')
 
   render: ->
     this.collection.each = (user) ->
       this.renderUser(user)
     this
 
-app = app || {}
-
-app.Users = Backbone.Collection.extend
-
-  model: app.User
-  url: '/'
-
-app = app || {}
-
 app.User = Backbone.Model.extend
 
-  urlRoot: '/'
-  idAttribute: 'name'
+  urlRoot: '/users'
+  idAttribute: 'id'
   defaults:
     name: 'Gregor Kalinsky'
     email: 'gregor@gmail.com'
     address: 'Russia'
 
-window.add_marker = (lat, long) ->
+app.Users = Backbone.Collection.extend
+
+  model: app.User
+  url: '/users'
+
+app.add_marker = (lat, long, title) ->
   latlng = new google.maps.LatLng(lat, long)
   marker = new google.maps.Marker(
     position: latlng
-    map: map
+    map: app.map
+    title: title
     )
   markers.push(marker)
 
