@@ -1,13 +1,13 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :name %>
+<%= simple_form_for @user, :remote => true do |f| %>
+  <%= f.input :name, input_html: { class: 'name' } %>
   <br>
-  <%= f.input :email %>
+  <%= f.input :email, input_html: { class: 'email' } %>
   <br>
-  <%= f.input :address %>
+  <%= f.input :address, input_html: { class: 'address' } %>
   <br>
-  <%= f.input :password %>
+  <%= f.input :password, input_html: { class: 'password' } %>
   <br>
-  <%= f.input :password_confirmation %>
+  <%= f.input :password_confirmation, input_html: { class: 'password_confirmation' } %>
   <br>
   <br>
   <%= f.button :submit %>
