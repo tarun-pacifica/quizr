@@ -1,15 +1,17 @@
-<h1>Form</h1>
-
-<% @questions.each do |question| %>
-  <div id="<%= question.id %>">
-    <%= simple_form_for @user_answer, :remote => true do |f| %>
-      <ol>
-        <li><h3><%= question.content %></h3></li>
-        <ul>
-          <li><%= f.input :answer_id, :collection => question.answers.map { |e| [e.content, e.id]}, :as => :radio_buttons %></li>
-        </ul>
-      </ol>
-      <%= f.submit :class => "question_submit" %>
-    <% end %>
-  </div>
-<% end %>
+<div id="question-block">
+  <% @questions.each do |question| %>
+    <div id="question-inner-container">
+      <div id="<%= question.id %>">
+        <%= simple_form_for @user_answer, :remote => true do |f| %>
+          <ol>
+            <li><h3><%= question.content %></h3></li>
+            <ul>
+              <li><%= f.input :answer_id, :collection => question.answers.map { |e| [e.content, e.id]}, :as => :radio_buttons %></li>
+            </ul>
+          </ol>
+          <%= f.submit 'Submit', :class => "question_submit" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
