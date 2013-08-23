@@ -30,7 +30,7 @@ showing_all_users = [
 display_map = (lat, long, zoom) ->
   canvas = $('#map_canvas')[0]
   mapOptions =
-    center: new google.maps.LatLng lat, long, zoom
+    center: new google.maps.LatLng lat, long, 13
     zoom: zoom
     styles: showing_all_users
     visualRefresh: true
@@ -106,57 +106,15 @@ app.User = Backbone.Model.extend
     email: 'gregor@gmail.com'
     address: 'Russia'
 
-
-
-function process_pin(pin) {
-  add_pin_to_array(pin);
-  display_pins();
-};
-
-function add_pin_to_array(pin) {
-  pins = _.reject(pins, function(p){return p.id == pin.id;});
-  pins.push(pin);
-};
-
-function display_pins() {
-  clear_markers();
-  $('ul#pins').empty();
-  _.each(pins, display_pin);
-};
-
-function display_pin(pin) {
-  add_marker(pin.latitude, pin.longitude, pin.title);
-
-  var li = $('<li>');
-
-  var divA = $('<div>');
-  divA.addClass('pin');
-
-  var div1 = $('<div>');
-  div1.addClass('category color');
-  div1.css('background-color', pin.category.color);
-
-  li.append([divA, div1]);
-  $('ul#pins').append(li);
-};
-
-function add_marker(lat, long, title) {
-  var latlng = new google.maps.LatLng(lat, long);
-  var marker = new google.maps.Marker({position: latlng, map: map, title: title});
-  markers.push(marker);
-};
-
-function clear_markers() {
-  _.each(markers, function(m){m.setMap(null);});
-  markers = [];
-};
-
+add_marker = (lat, long, zoom) ->
+  latlng = new google.maps.LatLng(lat, long)
+  marker = new google.maps.Marker(
+    post: latlng
+    map: map
+    )
 
 $(document).ready ->
   display_map(-33.89336, 151.217167, 13)
   app.router = new app.AppRouter()
   Backbone.history.start
     pushState: true
-
-
-

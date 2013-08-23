@@ -22,20 +22,14 @@
 <% end %>
 
 <% @users.each do |user| %>
-  <ul>
-    <li><%#= link_to user.name, user %></li>
-  </ul>
+  <script>
+    $(document).ready(function() {
+      add_marker(#{user.latitude}, #{user.longitude}, 13);
+    });
+  </script>
 <% end %>
 
 
-
-
-
-<<<<<<< HEAD
-<!--
-WRITE SCRIPT TO GET PINS AND PUSH THEM WITH MARKERs
-CONVERT SHIT INTO COFFEESCRIPT -->
-=======
 <div id="graph_box">
   <h3>Quiz Graph</h3>
   <div class="btn-group" data-toggle="buttons">
@@ -48,4 +42,3 @@ CONVERT SHIT INTO COFFEESCRIPT -->
   </div>
   <div id="chart"></div>
 </div>
->>>>>>> 8be8b5af12037a71b9a43b35cd11e5bbcb12d8c7
