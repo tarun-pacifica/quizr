@@ -1,18 +1,25 @@
-<div class="span6">
-<h1>Form</h1>
+<div class="row">
+<div class="col-md-6">
+<h1>Create a new quiz</h1>
 
 <%= simple_form_for @quiz do |f| %>
   <%= f.input :name %>
   <h4>Questions</h4>
   <div id="questions">
     <%= f.simple_fields_for :questions do |question| %>
-      <%= render "question_fields", :f => question %>
-      <% end %>
+      <%= render "question_fields", :f => question, :render_options => {:wrapper => 'bootstrap' } %>
+    <% end %>
       <div class="add_question">
         <%= link_to_add_association 'add question', f, :questions, :render_options => {:wrapper => 'bootstrap' } %>
       </div>
-      <div class="span6">
+
       <%= f.button :submit, :disable_with => 'Please wait ...', :class => "btn btn-primary" %>
-    </div>
+
   <% end %>
+</div>
+</div>
+
+<div class="col-md-6 quiz_callout">
+  <p class="lead">Create your own quiz for other people to complete</p>
+</div>
 </div>
