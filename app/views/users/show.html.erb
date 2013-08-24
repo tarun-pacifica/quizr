@@ -14,7 +14,7 @@
           <ul class="list-unstyled">
             <li>Answered: <%= userquiz.user_answers.count %></li>
             <li><% if userquiz.complete? %>
-                  <p>Score: <%= userquiz.correct_answer_count %>/<%= userquiz.question_count %>,(<%= userquiz.score_percent %>%)</p>
+                  <p>Score: <%= userquiz.correct_answer_count %>/<%= userquiz.question_count %>,(<%= userquiz.score %>%)</p>
                 <% else %>
                   <p>Quiz Incomplete</p>
                 <% end %>

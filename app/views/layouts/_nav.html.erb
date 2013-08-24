@@ -17,7 +17,7 @@
         <li><a href="/session/new">Login</a></li>
         <li><a href="/users/new">Sign Up</a></li>
       <% else %>
-        <li><a href="/users/<%= @current_user.id %>">Your Profile</a></li>
+        <li><a href="/users/<%= @current_user.slug %>">Your Profile</a></li>
         <li><%= link_to 'Log Out', login_path, :method => :delete %>
       <% end %>
     </ul>

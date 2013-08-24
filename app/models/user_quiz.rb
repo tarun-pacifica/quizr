@@ -10,7 +10,7 @@
 #
 
 class UserQuiz < ActiveRecord::Base
-  attr_accessible :is_owner, :quiz_id, :user_id
+  attr_accessible :is_owner, :quiz_id, :user_id, :score
   belongs_to :user
   belongs_to :quiz
   has_many :user_answers
