@@ -15,8 +15,6 @@ class UserQuiz < ActiveRecord::Base
   belongs_to :quiz
   has_many :user_answers
 
-
-
   def complete?
     if self.quiz.questions.count == 0
       return false
@@ -24,8 +22,6 @@ class UserQuiz < ActiveRecord::Base
       self.quiz.questions.count == self.user_answers.count
     end
   end
-
-
 
   def correct_answer_count
     self.user_answers.where(:is_correct => true).count
@@ -36,7 +32,7 @@ class UserQuiz < ActiveRecord::Base
   end
 
   def score_percent
-    ((self.correct_answer_count.to_f/self.question_count) * 100).round
+    ((correct_answer_count.to_f/question_count) * 100).round
   end
 
 end
