@@ -9,7 +9,7 @@
 #  slug        :string(255)
 #  user_id     :integer
 #  description :string(255)
-#
+
 
 class Quiz < ActiveRecord::Base
   attr_accessible :name, :questions_attributes, :description

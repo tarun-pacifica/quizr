@@ -20,4 +20,7 @@ class UserQuiz < ActiveRecord::Base
   def complete?
     self.quiz.questions.count == self.user_answers.count
   end
+
+  def score
+  end
 end
