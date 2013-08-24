@@ -18,7 +18,11 @@ class UserQuiz < ActiveRecord::Base
 
 
   def complete?
-    self.quiz.questions.count == self.user_answers.count
+    if self.quiz.questions.count == 0
+      return false
+    else
+      self.quiz.questions.count == self.user_answers.count
+    end
   end
 
   def score

@@ -14,8 +14,10 @@
           <ul class="list-unstyled">
             <li>6 out of 10</li>
             <li><% if @current_user.user_quizzes.where(:quiz_id =>quiz.id).first.complete? %>
-                <p>Your Score: <%=(@current_user.user_quizzes.where(:quiz_id =>quiz.id).first.user_answers.where(:is_correct => true).count.to_f)/(quiz.questions.count) * 100 %></p>
-                  <% end %>
+                  <p>Your Score: <%=((@current_user.user_quizzes.where(:quiz_id =>quiz.id).first.user_answers.where(:is_correct => true).count.to_f)/(quiz.questions.count) * 100).round %>%</p>
+                <% else %>
+                  <p>Quiz Incomplete</p>
+                <% end %>
             </li>
           </ul>
         </div>
