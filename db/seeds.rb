@@ -9,9 +9,9 @@ u1 = User.create(:name => 'Bob', :email => 'bob@gmail.com', :password => 'a', :p
 u2 = User.create(:name => 'Sue', :email => 'sue@gmail.com', :password => 'a', :password_confirmation => 'a', :address => '25 Bourke St, Melbourne, 3000')
 u3 = User.create(:name => 'Sam', :email => 'sam@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Sydney opera house, Sydney')
 
-q1 = Quiz.create(:name => 'Ajax')
-q2 = Quiz.create(:name => 'TDD')
-q3 = Quiz.create(:name => 'Backbone.js')
+q1 = Quiz.create(:name => 'Ajax', :description => 'Think you know AJAX? Take the quiz and see how you measure up')
+q2 = Quiz.create(:name => 'TDD', :description => 'Try our TDD quiz which promises to TEST you to your limits')
+q3 = Quiz.create(:name => 'Backbone.js', :description => 'Give our backbone quiz a shot and prove you can really build single page apps')
 
 qu1 = Question.create(:content => 'Name the king who failed to keep an eye on things at the battle of Hastings')
 qu2 = Question.create(:content => 'In which sport would you use a chucker?')

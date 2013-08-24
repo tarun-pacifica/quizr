@@ -1,0 +1,9 @@
+<h1>Members</h1>
+<div class="col-md-7">
+<% @users.each do |user| %>
+  <ul class="list-unstyled">
+    <li><h4><%= user.name %></h4></li>
+    <li>Completed <span class="label label-warning"><%= pluralize(user.quizzes.count, 'quiz') %></span></li>
+  </ul>
+<% end %>
+</div>
