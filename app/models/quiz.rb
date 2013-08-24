@@ -2,15 +2,17 @@
 #
 # Table name: quizzes
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  slug       :string(255)
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  slug        :string(255)
+#  user_id     :integer
+#  description :string(255)
 #
 
 class Quiz < ActiveRecord::Base
-  attr_accessible :name, :questions_attributes
+  attr_accessible :name, :questions_attributes, :description
   has_many :questions
   has_many :answers, :through => :questions
   has_many :user_quizzes
