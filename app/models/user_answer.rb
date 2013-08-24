@@ -15,5 +15,5 @@ class UserAnswer < ActiveRecord::Base
   attr_accessible :answer_id, :question_id, :user_quiz_id, :is_correct
   belongs_to :user_quiz
 
-  validates_uniqueness_of :answer_id
+  # validates_uniqueness_of :answer_id
 end

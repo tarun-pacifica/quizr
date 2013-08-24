@@ -1,9 +1,9 @@
 <div class="col-md-7">
   <h1> Profile </h1>
-  <% @current_user.quizzes.each do |quiz| %>
+  <% @current_user.user_quizzes.each do |userquiz| %>
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= quiz.name %></h3>
+        <h3 class="panel-title"><%= userquiz.quiz.name %></h3>
       </div>
       <div class="panel-body">
         <div class="col-md-9">
@@ -12,9 +12,9 @@
         <div class="col-md-3">
           <div class="well well-sml">
           <ul class="list-unstyled">
-            <li>6 out of 10</li>
-            <li><% if @current_user.user_quizzes.where(:quiz_id =>quiz.id).first.complete? %>
-                  <p>Your Score: <%=((@current_user.user_quizzes.where(:quiz_id =>quiz.id).first.user_answers.where(:is_correct => true).count.to_f)/(quiz.questions.count) * 100).round %>%</p>
+            <li>Answered: <%= userquiz.user_answers.count %></li>
+            <li><% if userquiz.complete? %>
+                  <p>Score:<%= userquiz.score %>%</p>
                 <% else %>
                   <p>Quiz Incomplete</p>
                 <% end %>
@@ -23,10 +23,10 @@
         </div>
         </div>
         <div class="col-md-9">
-          <p><%= quiz.description %></p>
-          <% quiz.questions.each_with_index do |question, idx| %>
+          <p><%= userquiz.quiz.description %></p>
+          <% userquiz.quiz.questions.each_with_index do |question, idx| %>
             <p><span class="label label-warning"><%= idx + 1 %></span> <%= question.content %> </p>
-            <span class="<%="glyphicon glyphicon-ok" if @current_user.user_answers.where(:question_id => question.id).count != 0  %>"></%></span>
+            <span class="<%="glyphicon glyphicon-ok" if userquiz.user_answers.where(:question_id => question.id).count != 0  %>"></%></span>
           <% end %>
         </div>
       </div>

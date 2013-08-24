@@ -26,5 +26,6 @@ class UserQuiz < ActiveRecord::Base
   end
 
   def score
+    ((self.user_answers.where(:is_correct => true).count.to_f)/(self.quiz.questions.count) * 100).round
   end
 end
