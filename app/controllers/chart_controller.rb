@@ -19,7 +19,7 @@ class ChartController < ApplicationController
     render :json => @a
   end
 
-  def user
-    a = UserAnswer.where(:question_id => 44, :is_correct => false).count
+  # def user
+  #   a = UserAnswer.where(:question_id => 44, :is_correct => false).count
 
 end
