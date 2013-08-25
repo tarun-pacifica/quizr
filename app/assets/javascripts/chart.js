@@ -42,34 +42,32 @@ var user_quiz_scores = function () {
   var display_graph = function(userdata) {
     $('#chart').empty();
     new Morris.Bar({
-      barColors: ['yellow'],
+      barColors: ['green'],
       stacked: false,
       element: 'chart',
       data: userdata,
       xkey: 'name',
-      ykeys:['id'],
-      labels:['Score']
+      ykeys:['score'],
+      labels:['Scores'],
+      gridTextColour: ['red']
     });
   };
   $.ajax({
     dataType: 'json',
     type: 'get',
-    url: '/chart/user_quiz_scores'
+    url: '/chart/:user_id/user_quiz_scores'
   }).done(display_graph);
 };
   $('#graph_a').click(function() {
-    console.log(this);
     user_lat();
     });
 
   $('#graph_b').click(function() {
-    console.log(this);
     user_id();
   });
 
   $('#graph_c').click(function() {
-    console.log(this);
     user_quiz_scores();
   });
-
+user_quiz_scores();
 });

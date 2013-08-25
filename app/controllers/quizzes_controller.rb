@@ -29,7 +29,6 @@ class QuizzesController < ApplicationController
     # @user_quiz = UserQuiz.create(:user_id => @current_user.id, :quiz_id => @quiz.id)
     @user_answer = UserAnswer.new
     @questions = @quiz.questions
-    #binding.pry
   end
 
   def index
