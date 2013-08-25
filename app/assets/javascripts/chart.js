@@ -7,7 +7,7 @@ $(document).ready(function() {
         data: userdata,
         xkey: 'name',
         ykeys:['lat'],
-        labels:['Value']
+        labels:['Latitude']
       });
     };
     $.ajax({
@@ -27,7 +27,8 @@ var user_id = function () {
       data: userdata,
       xkey: 'name',
       ykeys:['id'],
-      labels:['ID']
+      labels:['ID'],
+      fillOpacity: '0.1'
     });
   };
   $.ajax({
@@ -37,14 +38,38 @@ var user_id = function () {
   }).done(display_graph);
 };
 
-$('#graph_a').click(function() {
-  console.log('AA');
-  user_lat();
+var user_quiz_scores = function () {
+  var display_graph = function(userdata) {
+    $('#chart').empty();
+    new Morris.Bar({
+      barColors: ['yellow'],
+      stacked: false,
+      element: 'chart',
+      data: userdata,
+      xkey: 'name',
+      ykeys:['id'],
+      labels:['Score']
+    });
+  };
+  $.ajax({
+    dataType: 'json',
+    type: 'get',
+    url: '/chart/user_quiz_scores'
+  }).done(display_graph);
+};
+  $('#graph_a').click(function() {
+    console.log(this);
+    user_lat();
+    });
+
+  $('#graph_b').click(function() {
+    console.log(this);
+    user_id();
   });
 
-$('#graph_b').click(function() {
-  console.log('BB');
-  user_id();
-});
+  $('#graph_c').click(function() {
+    console.log(this);
+    user_quiz_scores();
+  });
 
 });

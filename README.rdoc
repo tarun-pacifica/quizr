@@ -1,7 +1,33 @@
 Things to do:
 
+Gregory Kalinski:
+
 Graph-related
-- Create Radio Button with options
-- Upon select, empty div, render new graph
+User: quizzes vs score
+Quiz: users vs score
+Question: user answer vs other answers
+Quiz: user failed vs passed pie chart
+User: quiz scores over time
+
+Dan
+Tidy HomePage incl. create Span-12 div containing QuizList and Graph
+Create quiz view displaying the correct answers after user has completed quiz.
+
+Andrew
+Write Validation Answers method inc. count correct answers
+Add Score column to user_quiz and is_correct column to user_answers
+Finish styling Quiz display
+
+Tarun
+Finish methods which Graph data
+Create HomePage Image with Graph and Quiz form showing
+
+Jack
+Get UserProfile display working
+Finish Search method on Navbar
+Remove 'Genre' & 'Home' from Navbar
 
 
+Whistle
+- Styling
+- Display user answer alongside correct answer.
