@@ -1,17 +1,31 @@
-<div id="question-block">
-  <% @questions.reverse.each do |question| %>
-    <div class="question-inner-container">
-      <div id="<%= question.id %>", class="question-content">
+<% @questions.reverse.each do |question| %>
+  <div id="<%= question.id %>">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= question.content %></h3>
+      </div>
         <%= simple_form_for @user_answer, :remote => true do |f| %>
-          <ol>
-            <li><h3><%= question.content %></h3></li>
-            <ul>
-              <li><%= f.input :answer_id, :collection => question.answers.map { |e| [e.content, e.id]}, :as => :radio_buttons %></li>
+          <div class="panel-body">
+            <ul style="list-style-type: none">
+              <li><%= f.input :answer_id, :collection => question.answers.map { |e| [e.content, e.id]}, :as => :radio_buttons, :label => false %></li>
             </ul>
-          </ol>
           <%= f.submit 'Submit', :class => "question_submit" %>
         <% end %>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
+
+<!-- <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Woooo</h3>
+  </div>
+  <div class="panel-body">
+    Argh
+    <br>
+    <br>
+    br
+  </div>
+
+</div> -->
