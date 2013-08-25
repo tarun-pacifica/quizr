@@ -18,6 +18,7 @@ Quizr::Application.routes.draw do
 
   get '/chart/user_id' => 'chart#user_id'
   get '/chart/user_lat' => 'chart#user_lat'
+  get '/chart/user_quiz_scores' => 'chart#user_quiz_scores'
 
   resources :user_answers, :only => [:create, :destroy]
 end
