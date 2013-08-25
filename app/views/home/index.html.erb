@@ -36,7 +36,7 @@
     <li><h4><%= user.name %></h4></li>
     <li>Total Score <span class="label label-warning">
       <% total_score_array = user.user_quizzes.map {|x| x.score } %>
-      <%= total_score_array.inject(:+) %>
+      <%= total_score_array.compact.inject(:+) %>
     </span></li>
     <li>Completed <span class="label label-warning"><%= pluralize(user.quizzes.count, 'quiz') %></span></li>
   </ul>
