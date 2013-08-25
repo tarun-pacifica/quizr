@@ -11,6 +11,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'sqlite3'
 gem 'd3-rails'
 gem 'newrelic_rpm'
+gem 'cocoon'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 

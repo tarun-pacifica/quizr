@@ -50,10 +50,7 @@ display_map = (lat, long, zoom) ->
 window.app = window.app || {}
 
 app.templates =
-  appView: '<h1>Recent Posts</h1><ul id="posts"></ul>',
-  blogList: '{{title}}',
-  blogView: '<div class="post"><h1 class="title">{{title}}</h1><h3 class="slug">{{slug}}</h3><div class="content">{{{content}}}</div></div><div class="form"><ul class="comments"></div><div class="actual_form"></div><button class="submit">Submit</button>',
-  commentList: '<li>{{twaddle}}</li>'
+  appView: '<h1>Users</h1><ul id="users"></ul>',
 
 app.AppRouter = Backbone.Router.extend
   routes:

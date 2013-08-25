@@ -1,9 +1,27 @@
 class QuizzesController < ApplicationController
 
   def new
+    @quiz = Quiz.new
+
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @quiz }
+    end
   end
 
   def create
+    @quiz = Quiz.new(params[:quiz])
+    @quiz.user_id = @current_user.id
+
+    respond_to do |format|
+      if @quiz.save
+        format.html { redirect_to(@quiz, :notice => 'Quiz was successfully created.') }
+        format.json  { render :json => @quiz, :status => :created, :location => @quiz }
+      else
+        format.html { render :action => "new" }
+        format.json  { render :json => @quiz.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   def show

@@ -9,9 +9,9 @@ u1 = User.create(:name => 'Bob', :email => 'bob@gmail.com', :password => 'a', :p
 u2 = User.create(:name => 'Sue', :email => 'sue@gmail.com', :password => 'a', :password_confirmation => 'a', :address => '25 Bourke St, Melbourne, 3000')
 u3 = User.create(:name => 'Sam', :email => 'sam@gmail.com', :password => 'a', :password_confirmation => 'a', :address => 'Sydney opera house, Sydney')
 
-q1 = Quiz.create(:name => 'Ajax')
-q2 = Quiz.create(:name => 'TDD')
-q3 = Quiz.create(:name => 'Backbone.js')
+q1 = Quiz.create(:name => 'Ajax', :description => 'Think you know AJAX? Take the quiz and see how you measure up')
+q2 = Quiz.create(:name => 'TDD', :description => 'Try our TDD quiz which promises to TEST you to your limits')
+q3 = Quiz.create(:name => 'Backbone.js', :description => 'Give our backbone quiz a shot and prove you can really build single page apps')
 
 qu1 = Question.create(:content => 'Name the king who failed to keep an eye on things at the battle of Hastings')
 qu2 = Question.create(:content => 'In which sport would you use a chucker?')
@@ -20,12 +20,13 @@ qu4 = Question.create(:content => 'Traditionally, what type of wood do Rolls Roy
 qu5 = Question.create(:content => 'What is the national emblem of Canada?')
 qu6 = Question.create(:content => 'Why is Dan Addington such a legend?')
 
-a1 = Answer.create(:content => 'Answer:= Harold')
-a2 = Answer.create(:content => 'Answer:= Polo')
-a3 = Answer.create(:content => 'Answer:= 10 days')
-a4 = Answer.create(:content => 'Answer:= Walnut')
-a5 = Answer.create(:content => 'Answer:= Maple Leaf')
-a6 = Answer.create(:content => 'Answer:= He just is.')
+a1 = Answer.create(:content => 'Answer:= Harold', :is_correct => true)
+a2 = Answer.create(:content => 'Answer:= Polo', :is_correct => true)
+a3 = Answer.create(:content => 'Answer:= 10 days', :is_correct => true)
+a4 = Answer.create(:content => 'Answer:= Walnut', :is_correct => true)
+a5 = Answer.create(:content => 'Answer:= Maple Leaf', :is_correct => true)
+a6 = Answer.create(:content => 'Answer:= He just is.', :is_correct => true)
+a7 = Answer.create(:content => 'George the second', :is_correct => false)
 
 q1.questions << qu1 << qu2 << qu3 << qu4 << qu5 << qu6
 q1.save
@@ -34,7 +35,7 @@ q2.save
 q3.questions << qu1 << qu2 << qu3 << qu4 << qu5 << qu6
 q3.save
 
-qu1.answers << a1
+qu1.answers << a1 << a7
 qu1.save
 qu2.answers << a2
 qu2.save

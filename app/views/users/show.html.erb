@@ -1,14 +1,41 @@
-<%= @user.name %>
+<div class="col-md-7">
+  <h1> Profile </h1>
+  <% @current_user.user_quizzes.each do |userquiz| %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= userquiz.quiz.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-9">
+          <h4>Questions</h4>
+        </div>
+        <div class="col-md-3">
+          <div class="well well-sml">
+          <ul class="list-unstyled">
+            <li>Answered: <%= userquiz.user_answers.count %></li>
+            <li><% if userquiz.complete? %>
+                  <p>Score: <%= userquiz.correct_answer_count %>/<%= userquiz.question_count %>,(<%= userquiz.score %>%)</p>
+                <% else %>
+                  <p>Quiz Incomplete</p>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+        </div>
+        <div class="col-md-9">
+          <p><%= userquiz.quiz.description %></p>
+          <% userquiz.quiz.questions.each_with_index do |question, idx| %>
+            <p><span class="label label-warning"><%= idx + 1 %></span> <%= question.content %> </p>
+            <span class="<%="glyphicon glyphicon-ok" if userquiz.user_answers.where(:question_id => question.id).count != 0  %>"></%></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<h3>Quizzes completed</h3>
 
 
-<% @current_user.quizzes.each do |quiz| %>
-  <h3><%= link_to quiz.name, quiz %></h3>
-</p>Quiz complete? <%= @current_user.user_quizzes.where(:quiz_id =>quiz.id).first.complete? %></p>
-  <% quiz.questions.each do |question| %>
-    <p><%= question.content %> </p>
-    <%= @current_user.user_answers.where(:question_id => question.id).count != 0  %></%>
-    <% end %>
 
-<% end %>
+
+

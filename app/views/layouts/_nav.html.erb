@@ -10,30 +10,14 @@
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/user">Your Profile</a></li>
-
       <li><a href="/quizzes/new">New Quiz</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Front-End</a></li>
-          <li><a href="#">Back-End</a></li>
-          <li><a href="#">All</a></li>
-        </ul>
-      </li>
     </ul>
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Find a quiz!">
-      </div>
-      <button type="submit" class="btn btn-default">Search</button>
-    </form>
     <ul class="nav navbar-nav navbar-right">
       <% if @current_user.nil? %>
         <li><a href="/session/new">Login</a></li>
         <li><a href="/users/new">Sign Up</a></li>
       <% else %>
+        <li><a href="/users/<%= @current_user.slug %>">Your Profile</a></li>
         <li><%= link_to 'Log Out', login_path, :method => :delete %>
       <% end %>
     </ul>
