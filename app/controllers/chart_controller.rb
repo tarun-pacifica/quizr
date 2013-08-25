@@ -14,11 +14,12 @@ class ChartController < ApplicationController
 
 # Graph with all quiz scores for current_user
   def user_quiz_scores
-    @user_quiz_scores = User.all
-    render :json => @user_quiz_scores
+    a = @current_user.user_quizzes
+    @a = a.joins(:quiz).collect {|a| { :name => a.quiz.name,:score => a.score,:date => a.updated_at} }
+    render :json => @a
   end
 
-# Graph displaying for a Question: users failed vs users passed
-  # def question_pass_fail
-  #   @question_pass_fail = Question.
+  def user
+    a = UserAnswer.where(:question_id => 44, :is_correct => false).count
+
 end
