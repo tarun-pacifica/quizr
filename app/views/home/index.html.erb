@@ -13,13 +13,15 @@
       <div class="panel-body">
         <p><%= quiz.description %></p>
         <div class="col-md-9">
-          <% if @current_user.quizzes.include?(quiz) %>
+          <% if @current_user && @current_user.quizzes.include?(quiz) %>
             <span class="label label-warning">Completed</span>
           <% else %>
             <%= form_tag '/user_quizzes' do %>
             <%= hidden_field_tag "quiz_id", quiz.id %>
             <%= hidden_field_tag "quiz_slug", quiz.slug %>
-            <%= submit_tag 'Start Quiz', :class => "btn btn-success" %>
+            <% if @current_user %>
+              <%= submit_tag 'Start Quiz', :class => "btn btn-success" %>
+            <% end %>
             <% end %>
             <% end %>
         </div>

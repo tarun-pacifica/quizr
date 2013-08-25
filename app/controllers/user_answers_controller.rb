@@ -1,4 +1,5 @@
 class UserAnswersController < ApplicationController
+  before_filter :if_logged_in
   after_filter :update_score, :only => :create
   def create
     answer = Answer.where(:id => params[:user_answer][:answer_id]).first

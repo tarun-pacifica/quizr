@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-
+  before_filter :if_logged_in
   def new
     @quiz = Quiz.new
 
