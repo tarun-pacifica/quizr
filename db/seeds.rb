@@ -20,12 +20,12 @@ qu4 = Question.create(:content => 'Traditionally, what type of wood do Rolls Roy
 qu5 = Question.create(:content => 'What is the national emblem of Canada?')
 qu6 = Question.create(:content => 'Why is Dan Addington such a legend?')
 
-a1 = Answer.create(:content => 'Answer:= Harold', :is_correct => true)
-a2 = Answer.create(:content => 'Answer:= Polo', :is_correct => true)
-a3 = Answer.create(:content => 'Answer:= 10 days', :is_correct => true)
-a4 = Answer.create(:content => 'Answer:= Walnut', :is_correct => true)
-a5 = Answer.create(:content => 'Answer:= Maple Leaf', :is_correct => true)
-a6 = Answer.create(:content => 'Answer:= He just is.', :is_correct => true)
+a1 = Answer.create(:content => 'Harold', :is_correct => true)
+a2 = Answer.create(:content => 'Polo', :is_correct => true)
+a3 = Answer.create(:content => '10 days', :is_correct => true)
+a4 = Answer.create(:content => 'Walnut', :is_correct => true)
+a5 = Answer.create(:content => 'Maple Leaf', :is_correct => true)
+a6 = Answer.create(:content => 'He just is.', :is_correct => true)
 a7 = Answer.create(:content => 'George the second', :is_correct => false)
 
 q1.questions << qu1 << qu2 << qu3 << qu4 << qu5 << qu6
