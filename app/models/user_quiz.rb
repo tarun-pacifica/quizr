@@ -15,6 +15,8 @@ class UserQuiz < ActiveRecord::Base
   belongs_to :quiz
   has_many :user_answers
 
+  validates_uniqueness_of :quiz_id
+
   def complete?
     if self.quiz.questions.count == 0
       return false

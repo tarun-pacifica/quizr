@@ -1,3 +1,7 @@
 <h3><%= @quiz.name %></h3>
 
-<%= render 'user_answers/form' %>
+<% if @current_user.quizzes.include?(@quiz) %>
+  <%= render 'completed_message' %>
+<% else %>
+  <%= render 'user_answers/form' %>
+<% end %>
