@@ -19,7 +19,7 @@ class UserQuiz < ActiveRecord::Base
   validates_uniqueness_of :quiz_id
 
   def complete?
-    if self.quiz.questions.count == 0 || self.quiz == []
+    if self.quiz.questions.count == 0
       return false
     else
       self.quiz.questions.count == self.user_answers.count
