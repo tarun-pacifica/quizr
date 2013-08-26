@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>Welcome to Quizr</h1>
-  <p class="lead">Quizr is a web app which lets you create your own quiz, or take other people's quizzes. You can keep track of every quiz you have created or completed, and see how you compare with others.</p>
+  <p class="lead">Quizr is a web app which lets you create your own quiz, or take other people's quizzes. You can keep track of every quiz you have created or completed, and see how you compare with others. Log in or sign up now to take part!</p>
 </div>
 
 <div class="col-md-7">
@@ -38,12 +38,11 @@
 <div class="col-md-5">
   <h3>Leaderboard</h3>
   <hr>
-  <% @users.each do |user| %>
+  <% @leaderboard.each do |user| %>
   <ul class="list-unstyled">
     <li><h4><%= user.name %></h4></li>
     <li>Total Score <span class="label label-warning">
-      <% total_score_array = user.user_quizzes.map {|x| x.score } %>
-      <%= total_score_array.compact.inject(:+) %>
+      <%= user.total_score %>
     </span></li>
     <li>Completed <span class="label label-warning"><%= pluralize(user.quizzes.count, 'quiz') %></span></li>
   </ul>

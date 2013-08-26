@@ -7,6 +7,7 @@
 #  quiz_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  score      :integer
 #
 
 class UserQuiz < ActiveRecord::Base
@@ -18,7 +19,7 @@ class UserQuiz < ActiveRecord::Base
   validates_uniqueness_of :quiz_id
 
   def complete?
-    if self.quiz.questions.count == 0
+    if self.quiz.questions.count == 0 || self.quiz == []
       return false
     else
       self.quiz.questions.count == self.user_answers.count

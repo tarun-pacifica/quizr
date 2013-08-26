@@ -12,11 +12,12 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  slug            :string(255)
+#  total_score     :integer
 #
 
 class User < ActiveRecord::Base
   before_save :geocode
-  attr_accessible :address, :email, :lat, :long, :name, :password, :password_confirmation
+  attr_accessible :address, :email, :lat, :long, :name, :password, :password_confirmation, :total_score
   has_many :quizzes, :through => :user_quizzes
   has_many :user_quizzes
   has_many :user_answers, :through => :user_quizzes
