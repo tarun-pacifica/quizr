@@ -42,7 +42,7 @@ var user_quiz_scores = function () {
   var display_graph = function(userdata) {
     $('#chart').empty();
     new Morris.Bar({
-      barColors: ['green'],
+      barColors: ['#7cdaff'],
       stacked: false,
       element: 'chart',
       data: userdata,

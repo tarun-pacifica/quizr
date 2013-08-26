@@ -31,3 +31,6 @@ Remove 'Genre' & 'Home' from Navbar
 Whistle
 - Styling
 - Display user answer alongside correct answer.
+
+go to url see what the json object looks like
+change morris graph
