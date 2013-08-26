@@ -1,8 +1,7 @@
 class QuizzesController < ApplicationController
-
+  before_filter :if_logged_in
   def new
     @quiz = Quiz.new
-
     respond_to do |format|
       format.html
       format.json  { render :json => @quiz }
@@ -15,8 +14,8 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        format.html { redirect_to(@quiz, :notice => 'Quiz was successfully created.') }
-        format.json  { render :json => @quiz, :status => :created, :location => @quiz }
+        format.html { redirect_to(root_path, :notice => 'Quiz was successfully created.') }
+        format.json  { render :json =>root_path, :status => :created, :location => @quiz }
       else
         format.html { render :action => "new" }
         format.json  { render :json => @quiz.errors, :status => :unprocessable_entity }

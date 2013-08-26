@@ -7,6 +7,7 @@
 #  quiz_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  score      :integer
 #
 
 class UserQuiz < ActiveRecord::Base

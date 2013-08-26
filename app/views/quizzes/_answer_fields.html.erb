@@ -1,7 +1,9 @@
 <div class="nested_fields">
   <%= f.input :content, :label => false, :input_html => { placeholder: "Add new answer..." } %>
-  <%= f.check_box :is_correct %>
+  <div class="check_and_labels">
+  <%= f.check_box :is_correct, :class => "answer_check_boxes" %>
   <%= f.label :is_correct, "correct answer" %>
+  </div>
   <div class="remove_fields">
     <%= link_to_remove_association "remove answer", f %>
   </div>

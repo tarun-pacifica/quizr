@@ -1,5 +1,7 @@
 class UserAnswersController < ApplicationController
+  before_filter :if_logged_in
   after_filter :update_score, :only => :create
+  after_filter :update_total_score, :only => :create
   def create
     answer = Answer.where(:id => params[:user_answer][:answer_id]).first
     @quiz = answer.question.quiz
@@ -14,5 +16,11 @@ class UserAnswersController < ApplicationController
   def update_score
     @user_quiz = @current_user.user_quizzes.where(:quiz_id => @quiz.id).last
     @user_quiz.update_attributes(:score => @user_quiz.score_percent)
+  end
+
+  def update_total_score
+    total_score_array = @current_user.user_quizzes.map {|x| x.score }
+    total_score = total_score_array.compact.inject(:+)
+    @current_user.update_attributes(:total_score => total_score)
   end
 end

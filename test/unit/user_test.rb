@@ -12,6 +12,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  slug            :string(255)
+#  total_score     :integer
 #
 
 require 'test_helper'
